@@ -6,4 +6,4 @@ window.onerror = function(message, url, linenumber){
 		,traditional: true
 		,data: {method:'JSError', msg:message || 'undefined', url:url || location.href, line:linenumber || ''}
 	});
-}
+};
