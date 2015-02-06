@@ -9,7 +9,10 @@ window.onerror = function(message, url, line, column, error){
 		script.type = "text/javascript";
 		script.src = "//code.jquery.com/jquery-1.11.2.min.js";
 		document.getElementsByTagName('head')[0].appendChild(script);
-		setTimeout(function wait(){ if(i++ > 50) return false; typeof jQuery !== 'undefined' ? onerror.apply(this, errArgs) : setTimeout(wait, 100); }, 100);
+		setTimeout(function wait(){
+			if(i++ > 50) return false;
+			if(typeof jQuery !== 'undefined'){ jQuery.noConflict(); onerror.apply(this, errArgs); } else { setTimeout(wait, 100); }
+		}, 100);
 		return;
 	}
 	
